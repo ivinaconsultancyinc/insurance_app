@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from typing import List
 import uuid
 
-from insurance_app.schemas.product_schema import ProductCreate, ProductUpdate, ProductResponse
-from insurance_app.services.product_service import ProductService
-from insurance_app.database import SessionLocal
+from schemas.product_schema import ProductCreate, ProductUpdate, ProductResponse
+from services.product_service import ProductService
+from database import SessionLocal
 
 router = APIRouter()
 
@@ -48,3 +48,4 @@ def delete_product(product_id: uuid.UUID, db: Session = Depends(get_db)):
     service = ProductService(db)
     service.delete_product(product_id)
     return {"message": "Product deleted successfully"}
+
