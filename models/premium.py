@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Date, Numeric, Enum, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
-from insurance_app.database import Base
+from database import Base
 import uuid
 
 class Premium(Base):
@@ -13,3 +13,4 @@ class Premium(Base):
     amount_paid = Column(Numeric, default=0.0)
     payment_date = Column(Date, nullable=True)
     status = Column(Enum("Paid", "Unpaid", "Partial", name="premium_status_enum"), default="Unpaid")
+
