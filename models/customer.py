@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Enum
 from sqlalchemy.orm import relationship
-from insurance_app.database import Base
+from database import Base
 import enum
 
 class GenderEnum(str, enum.Enum):
@@ -24,3 +24,4 @@ class Customer(Base):
     # Relationships
     policies = relationship("Policy", back_populates="customer", cascade="all, delete-orphan")
     claims = relationship("Claim", back_populates="customer", cascade="all, delete-orphan")
+
