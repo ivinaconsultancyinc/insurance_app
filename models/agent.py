@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Enum
 from sqlalchemy.orm import relationship
-from insurance_app.database import Base
+from database import Base
 import enum
 
 class AgentStatusEnum(str, enum.Enum):
@@ -23,4 +23,5 @@ class Agent(Base):
     # Relationships
     policies = relationship("Policy", back_populates="agent", cascade="all, delete-orphan")
     commissions = relationship("Commission", back_populates="agent", cascade="all, delete-orphan")
+
 
