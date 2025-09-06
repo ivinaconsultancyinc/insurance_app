@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from insurance_app.models.client import Client
-from insurance_app.schemas.client_schema import ClientCreate, ClientUpdate
+from models.client import Client
+from schemas.client_schema import ClientCreate, ClientUpdate
 import uuid
 
 class ClientService:
@@ -42,6 +42,7 @@ class ClientService:
         if client:
             self.db.delete(client)
             self.db.commit()
+
 
 
 
