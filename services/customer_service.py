@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from insurance_app import models, schemas
+import models, schemas
 
 def create_customer(db: Session, customer: schemas.CustomerCreate):
     db_customer = models.Customer(**customer.dict())
@@ -38,3 +38,4 @@ def delete_customer(db: Session, customer_id: int):
    
     db.delete(customer)
     db.commit()
+
