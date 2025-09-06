@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from insurance_app.models.policy import Policy
-from insurance_app.schemas.policy_schema import PolicyCreate, PolicyUpdate
+from models.policy import Policy
+from schemas.policy_schema import PolicyCreate, PolicyUpdate
 import uuid
 
 class PolicyService:
@@ -44,4 +44,5 @@ class PolicyService:
         policy = self.get_policy_by_id(policy_id)
         if policy:
             self.db.delete(policy)
+
             self.db.commit()
