@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from insurance_app.database import Base
+from database import Base
 from datetime import datetime
 
 class Document(Base):
@@ -16,3 +16,4 @@ class Document(Base):
 
     # Relationships
     uploader = relationship("User", back_populates="documents", lazy="joined")
+
