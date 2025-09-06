@@ -5,8 +5,8 @@ import shutil
 import os
 from uuid import uuid4
 
-from insurance_app import schemas, services
-from insurance_app.database import get_db
+import schemas, services
+from database import get_db
 
 router = APIRouter(
     prefix="/documents",
@@ -57,3 +57,4 @@ def get_document(document_id: int, db: Session = Depends(get_db)):
 @router.delete("/{document_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_document(document_id: int, db: Session = Depends(get_db)):
     services.document_service.delete_document(db, document_id)
+
