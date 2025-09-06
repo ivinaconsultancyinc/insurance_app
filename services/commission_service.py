@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from insurance_app import models, schemas
+import models, schemas
 
 def create_commission(db: Session, commission: schemas.commission_schema.CommissionCreate):
     db_commission = models.commission.Commission(**commission.dict())
@@ -35,3 +35,4 @@ def delete_commission(db: Session, commission_id: int):
 
     db.delete(db_commission)
     db.commit()
+
