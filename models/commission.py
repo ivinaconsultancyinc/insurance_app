@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, Float, ForeignKey, Date
 from sqlalchemy.orm import relationship
-from insurance_app.database import Base
+from database import Base
 
 class Commission(Base):
     __tablename__ = "commissions"
@@ -14,4 +14,5 @@ class Commission(Base):
     # Relationships
     agent = relationship("Agent", back_populates="commissions")
     policy = relationship("Policy", back_populates="commissions")
+
 
