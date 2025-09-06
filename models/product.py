@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Enum, Text, JSON
 from sqlalchemy.dialects.postgresql import UUID
-from insurance_app.database import Base
+from database import Base
 import uuid
 
 class Product(Base):
@@ -12,4 +12,5 @@ class Product(Base):
     description = Column(Text, nullable=True)
     rate_table = Column(JSON, nullable=True)  # JSON structure for premium calculation
     status = Column(Enum("Active", "Inactive", name="product_status_enum"), default="Active")
+
 
