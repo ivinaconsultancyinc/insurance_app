@@ -1,17 +1,17 @@
 from fastapi import FastAPI
 
-from insurance_app.routers.routers_client import router as client_router
-from insurance_app.routers.routers_policy import router as policy_router
-from insurance_app.routers.routers_product import router as product_router
-from insurance_app.routers.routers_premium import router as premium_router
-from insurance_app.routers.routers_commission import router as commission_router
-from insurance_app.routers.routers_claim import router as claim_router
-from insurance_app.routers.routers_customer import router as customer_router
-from insurance_app.routers.routers_agent import router as agent_router
-from insurance_app.routers.routers_document import router as document_router
-from insurance_app.routers.routers_audit import router as audit_router
-from insurance_app.routers.routers_ledger import router as ledger_router
-from insurance_app.routers.routers_reinsurance import router as reinsurance_router
+from routers.routers_client import router as client_router
+from routers.routers_policy import router as policy_router
+from routers.routers_product import router as product_router
+from routers.routers_premium import router as premium_router
+from routers.routers_commission import router as commission_router
+from routers.routers_claim import router as claim_router
+from routers.routers_customer import router as customer_router
+from routers.routers_agent import router as agent_router
+from routers.routers_document import router as document_router
+from routers.routers_audit import router as audit_router
+from routers.routers_ledger import router as ledger_router
+from routers.routers_reinsurance import router as reinsurance_router
 
 from insurance_app import views
 
@@ -47,3 +47,4 @@ app.include_router(views.router)
 @app.get("/")
 def root():
     return {"message": "Welcome to the Insurance Company of Africa API"}
+
