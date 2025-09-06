@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from insurance_app import models, schemas
+import models, schemas
 
 def create_agent(db: Session, agent: schemas.AgentCreate):
     db_agent = models.Agent(**agent.dict())
@@ -37,4 +37,5 @@ def delete_agent(db: Session, agent_id: int):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Agent not found")
    
     db.delete(agent)
+
      
