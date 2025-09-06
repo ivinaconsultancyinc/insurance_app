@@ -1,4 +1,4 @@
- from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
@@ -31,4 +31,5 @@ def update_customer(customer_id: int, customer: schemas.CustomerUpdate, db: Sess
 def delete_customer(customer_id: int, db: Session = Depends(get_db)):
     customer_service.delete_customer(db, customer_id)
     return None
+
 
