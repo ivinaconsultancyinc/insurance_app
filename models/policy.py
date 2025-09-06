@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Enum, Date, Numeric, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
-from insurance_app.database import Base
+from database import Base
 import uuid
 
 class Policy(Base):
@@ -15,3 +15,4 @@ class Policy(Base):
     currency = Column(String(3), nullable=False)  # e.g., USD or LRD
     sum_assured = Column(Numeric, nullable=False)
     premium_frequency = Column(Enum("Monthly", "Quarterly", "Annually", name="premium_frequency_enum"), nullable=False)
+
