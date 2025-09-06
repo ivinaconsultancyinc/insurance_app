@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from insurance_app.models.product import Product
-from insurance_app.schemas.product_schema import ProductCreate, ProductUpdate
+from models.product import Product
+from schemas.product_schema import ProductCreate, ProductUpdate
 import uuid
 
 class ProductService:
@@ -42,6 +42,7 @@ class ProductService:
         if product:
             self.db.delete(product)
             self.db.commit()
+
 
 
 
