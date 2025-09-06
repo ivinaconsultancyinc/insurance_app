@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from insurance_app.models.premium import Premium
-from insurance_app.schemas.premium_schema import PremiumCreate, PremiumUpdate
+from models.premium import Premium
+from schemas.premium_schema import PremiumCreate, PremiumUpdate
 import uuid
 
 class PremiumService:
@@ -42,4 +42,5 @@ class PremiumService:
         premium = self.get_premium_by_id(premium_id)
         if premium:
             self.db.delete(premium)
+
             self.db.commit()
