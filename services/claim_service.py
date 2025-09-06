@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from insurance_app import models, schemas
+import models, schemas
 
 def create_claim(db: Session, claim: schemas.claim_schema.ClaimCreate):
     db_claim = models.claim.Claim(**claim.dict())
@@ -35,6 +35,7 @@ def delete_claim(db: Session, claim_id: int):
 
     db.delete(db_claim)
     db.commit()
+
 
 
 
