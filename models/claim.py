@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Float, ForeignKey, Enum
 from sqlalchemy.orm import relationship
-from insurance_app.database import Base
+from database import Base
 import enum
 
 class ClaimStatus(enum.Enum):
@@ -21,4 +21,5 @@ class Claim(Base):
 
     # Relationships
     policy = relationship("Policy", back_populates="claims")
+
 
