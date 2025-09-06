@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from typing import List
 import uuid
 
-from insurance_app.schemas.client_schema import ClientCreate, ClientUpdate, ClientResponse
-from insurance_app.services.client_service import ClientService
-from insurance_app.database import SessionLocal
+from client_schema import ClientCreate, ClientUpdate, ClientResponse
+from services.client_service import ClientService
+from database import SessionLocal
 
 router = APIRouter()
 
@@ -45,3 +45,4 @@ def delete_client(client_id: uuid.UUID, db: Session = Depends(get_db)):
     service = ClientService(db)
     service.delete_client(client_id)
     return {"message": "Client deleted successfully"}
+
