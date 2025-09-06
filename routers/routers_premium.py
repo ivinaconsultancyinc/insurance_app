@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from typing import List
 import uuid
 
-from insurance_app.schemas.premium_schema import PremiumCreate, PremiumUpdate, PremiumResponse
-from insurance_app.services.premium_service import PremiumService
-from insurance_app.database import SessionLocal
+from schemas.premium_schema import PremiumCreate, PremiumUpdate, PremiumResponse
+from services.premium_service import PremiumService
+from database import SessionLocal
 
 router = APIRouter()
 
@@ -48,3 +48,4 @@ def delete_premium(premium_id: uuid.UUID, db: Session = Depends(get_db)):
     service = PremiumService(db)
     service.delete_premium(premium_id)
     return {"message": "Premium deleted successfully"}
+
