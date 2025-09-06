@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 import os
 
-from insurance_app import models, schemas
+import models, schemas
 
 def create_document(db: Session, document: schemas.document_schema.DocumentCreate):
     db_document = models.document.Document(**document.dict())
@@ -34,5 +34,6 @@ def get_documents_by_entity(db: Session, entity: str, entity_id: int):
         models.document.Document.related_entity == entity,
         models.document.Document.related_entity_id == entity_id
     ).all()
+
 
 
