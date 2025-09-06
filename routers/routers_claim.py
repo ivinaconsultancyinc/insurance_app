@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
-from insurance_app.database import get_db
-from insurance_app.schemas.claim_schema import ClaimCreate, ClaimUpdate, ClaimOut
-from insurance_app.schemas.document_schema import DocumentOut
-from insurance_app.services import claim_service, document_service
+from database import get_db
+from schemas.claim_schema import ClaimCreate, ClaimUpdate, ClaimOut
+from schemas.document_schema import DocumentOut
+from services import claim_service, document_service
 
 router = APIRouter(
     prefix="/claims",
@@ -37,4 +37,5 @@ def delete_claim(claim_id: int, db: Session = Depends(get_db)):
 
 @router.get("/{claim_id}/documents", response_model=List[DocumentOut])
 def get_documents_for_claim(claim_id: int, db: Session = Depends(get_db)):
+
     return document_service.get_documents_by_entity(db, "claim", claim_id)
