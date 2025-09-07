@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from typing import List
 import uuid
 
-from client_schema import ClientCreate, ClientUpdate, ClientResponse
+from schemas.client_schema import ClientCreate, ClientUpdate, ClientResponse
 from services.client_service import ClientService
 from database import SessionLocal
 
@@ -45,4 +45,5 @@ def delete_client(client_id: uuid.UUID, db: Session = Depends(get_db)):
     service = ClientService(db)
     service.delete_client(client_id)
     return {"message": "Client deleted successfully"}
+
 
