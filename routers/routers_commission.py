@@ -1,6 +1,6 @@
 from fastapi import APIRouter, status, Depends
 from sqlalchemy.orm import Session
-from commission_schema import CommissionCreate, CommissionOut
+from schemas.commission_schema import CommissionCreate, CommissionOut
 from models.commission import Commission
 from database import SessionLocal
 
@@ -21,3 +21,4 @@ def create_commission(commission: CommissionCreate, db: Session = Depends(get_db
     db.refresh(new_commission)
 
     return new_commissio
+
