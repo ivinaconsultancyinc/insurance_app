@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
-from import models
+import models
 from schemas.customer_schema import CustomerCreate, CustomerUpdate
 
 def create_customer(db: Session, customer: CustomerCreate):
@@ -35,3 +35,4 @@ def delete_customer(db: Session, customer_id: int):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Customer not found")
     db.delete(customer)
     db.commit()
+
