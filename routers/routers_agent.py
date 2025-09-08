@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
-from schemas import agent as agent_schema
-from services import agent as agent_service
+from schemas import agent_schema
+from services import agent_service
 from database import get_db
 
 router = APIRouter(
@@ -31,4 +31,5 @@ def update_agent(agent_id: int, agent: agent_schema.AgentUpdate, db: Session = D
 def delete_agent(agent_id: int, db: Session = Depends(get_db)):
     agent_service.delete_agent(db, agent_id)
     return None
+
 
