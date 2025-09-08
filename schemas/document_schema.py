@@ -19,7 +19,6 @@ class DocumentOut(DocumentBase):
     class Config:
         orm_mode = True
 
-routers_document.py
 from fastapi import APIRouter, UploadFile, File, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
@@ -79,3 +78,4 @@ def get_document(document_id: int, db: Session = Depends(get_db)):
 @router.delete("/{document_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_document(document_id: int, db: Session = Depends(get_db)):
     services.document_service.delete_document(db, document_id)
+
