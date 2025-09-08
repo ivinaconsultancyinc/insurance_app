@@ -1,7 +1,8 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-import models, schemas
+import models
+from schemas import agent_schema
 
 def create_agent(db: Session, agent: schemas.AgentCreate):
     db_agent = models.Agent(**agent.dict())
@@ -39,3 +40,4 @@ def delete_agent(db: Session, agent_id: int):
     db.delete(agent)
 
      
+
