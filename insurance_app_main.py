@@ -13,11 +13,11 @@ from routers.routers_audit import router as audit_router
 from routers.routers_ledger import router as ledger_router
 from routers.routers_reinsurance import router as reinsurance_router
 
-import views
+from .insurance_app import views
 
 app = FastAPI(title="Insurance Company of Africa Management System")
 
-from database import database
+from .insurance_app.database import database
 
 @app.on_event("startup")
 async def startup():
@@ -47,5 +47,6 @@ app.include_router(views.router)
 @app.get("/")
 def root():
     return {"message": "Welcome to the Insurance Company of Africa API"}
+
 
 
