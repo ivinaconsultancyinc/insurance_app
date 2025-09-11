@@ -21,4 +21,5 @@ def create_commission(commission: CommissionCreate, db: Session = Depends(get_db
     db.refresh(new_commission)
 
     return new_commissio
+n
 
