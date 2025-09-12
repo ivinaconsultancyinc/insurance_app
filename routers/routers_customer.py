@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-import models
-from schemas.customer_schema import CustomerCreate, CustomerUpdate, CustomerOut
-from database import get_db
-from services import customer_service
+from insurance_app import models
+from insurance_app.schemas.customer_schema import CustomerCreate, CustomerUpdate, CustomerOut
+from insurance_app.database import get_db
+from insurance_app.services import customer_service
 router = APIRouter(
     prefix="/customers",
     tags=["Customers"]
@@ -25,6 +25,7 @@ def update_customer(customer_id: int, customer: CustomerUpdate, db: Session = De
 def delete_customer(customer_id: int, db: Session = Depends(get_db)):
     customer_service.delete_customer(db, customer_id)
     return None
+
 
 
 
