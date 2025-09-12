@@ -1,6 +1,6 @@
  services:
   - type: web
-    name: insurance-app
+    name: insurance_app
     env: python
     buildCommand: ""  # Or "pip install -r requirements.txt" if needed
     startCommand: cd insurance_app && uvicorn insurance_app_main:app --host 0.0.0.0 --port $PORT
